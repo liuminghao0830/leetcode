@@ -26,7 +26,7 @@ public:
 }; Solution solution;
 
 int main(){
-	vector<int> A{1, 2, 3, 4, 5, 7, 9};
-	cout << solution.numberOfArithmeticSlices(A) << endl;
-	return 0;
+    vector<int> A{1, 2, 3, 4, 5, 7, 9};
+    cout << solution.numberOfArithmeticSlices(A) << endl;
+    return 0;
 }
