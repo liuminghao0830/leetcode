@@ -8,14 +8,15 @@ public:
         if (nums.size() <= 1) return false;
         int n = nums.size();
         
+        vector<bool> vis(n, false);
         for (int i = 0; i < n; ++i){
-            vector<bool> vis(n, false);
             int cur = i; int cnt = 0;
+            vector<bool> seen(n, false);
             while (!vis[cur]){
-                vis[cur] = true;
+                vis[cur] = true; seen[cur] = true;
                 int next = (n + (cur + nums[cur]) % n) % n;
                 if ((nums[next] * nums[i] < 0) || (next == cur)) break;
-                else if (vis[next] && (cnt > 0)) return true;
+                else if (seen[next] && (cnt > 0)) return true;
                 cur = next; cnt++;
             }
         }
