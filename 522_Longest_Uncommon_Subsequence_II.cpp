@@ -19,12 +19,12 @@ public:
         int res = -1;
 
         for (int i = 0; i < strs.size(); ++i){
-            int j;
-            for (j = 0; j < strs.size(); ++j){
+            int j = 0;
+            for (; j < strs.size(); ++j){
                 if (i == j) continue;
                 if (LCS(strs[i], strs[j])) break;
             }
-            if (j == (int)strs.size()) res = max(res, (int)strs.size());
+            if (j == strs.size()) res = max(res, (int)strs[i].size());
         }
 
         return res;
