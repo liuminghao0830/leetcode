@@ -5,6 +5,8 @@ using namespace std;
 class Solution{
 public:
     int maxProduct(vector<string> words){
+        if (words.empty()) return 0;
+        
         unordered_map<string, int> m;
         for (string w : words){
             for (char c : w){
