@@ -16,6 +16,7 @@ public:
     }
 
     int findMaximumXOR(vector<int>& nums) {
+        /* bit XOR a^b = c -> b^c=a; O(32n): 40% */
         int mask = 0; int res = 0;
         for (int i = 31; i >= 0; --i){
             unordered_set<int> s;
