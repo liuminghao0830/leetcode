@@ -37,6 +37,7 @@ public:
     }
 
     vector<vector<int>> updateMatrix(vector<vector<int>>& matrix){
+        /*BST O(2n) : 6% */
         if (matrix.empty() || matrix[0].empty()) return matrix;
         int m = matrix.size(), n = matrix[0].size();
         queue<vector<int>> q;
@@ -49,13 +50,13 @@ public:
         }
         vector<vector<int>> dirs{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
         while (!q.empty()){
-        	auto t = q.front(); q.pop();
-        	for (auto dir : dirs){
-        		int x = t[0] + dir[0], y = t[1] + dir[1];
-        		if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] <= matrix[t[0]][t[1]] + 1) continue;
-        		matrix[x][y] = matrix[t[0]][t[1]] + 1;
-        		q.push({x, y});
-        	}
+            auto t = q.front(); q.pop();
+            for (auto dir : dirs){
+                int x = t[0] + dir[0], y = t[1] + dir[1];
+                if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] <= matrix[t[0]][t[1]] + 1) continue;
+                matrix[x][y] = matrix[t[0]][t[1]] + 1;
+                q.push({x, y});
+            }
         }
 
         return matrix;
