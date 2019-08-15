@@ -18,6 +18,24 @@ public:
         
         return false;
     }
+    bool checkInclusion2(string s1, string s2) {
+        if (s2.length() < s1.length()) return false;
+        int p = s1.length(); 
+        vector<int> cnt1(26, 0); vector<int> cnt2(26, 0);
+        
+        for (int i = 0; i < p; ++i) {
+            cnt1[s1[i] - 'a']++;
+            cnt2[s2[i] - 'a']++;
+        }
+        if (cnt1 == cnt2) return true;
+        
+        for (int i = p; i < s2.length(); ++i){
+            cnt2[s2[i - p] - 'a']--;
+            cnt2[s2[i] - 'a']++;
+            if (cnt1 == cnt2) return true;
+        }
+        return false;
+    }
 };
 
 int main(){
