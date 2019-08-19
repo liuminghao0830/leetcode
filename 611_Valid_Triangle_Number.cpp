@@ -23,11 +23,30 @@ public:
         }
         return cnt;
     }
+
+    int triangleNumber2(vector<int>& nums){
+        /*3sum II O(n^2) : 94% */
+        int n = nums.size(); int cnt = 0;
+        sort(nums.begin(), nums.end());
+
+        for (int i = n - 1; i > 1; --i){
+            int left = 0, right = i - 1;
+            while (left < right){
+                int s = nums[left] + nums[right];
+                if (s > nums[i]) {
+                    cnt += right - left;
+                    right--;
+                }
+                else left++;
+            }
+        }
+        return cnt;
+    }
 };
 
 int main(){
     Solution* solution = new Solution();
     vector<int> nums{2, 2, 3, 4};
-    cout << solution->triangleNumber(nums) << endl;
+    cout << solution->triangleNumber2(nums) << endl;
     return 0;
 }
