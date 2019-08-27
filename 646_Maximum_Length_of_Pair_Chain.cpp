@@ -34,7 +34,7 @@ public:
             }
             else end = pairs[i][1];
         }
-        return pairs.size() - cnt;
+        return n - cnt;
     }
 };
 
