@@ -7,9 +7,7 @@ class Solution(object):
         def dfs(i):
             num, string = '', ''
             while i < len(s):
-                if s[i] >= 'a' and s[i] <= 'z' or s[i] >= 'A' and s[i] <= 'Z':
-                    string += s[i]
-                elif s[i] >= '0' and s[i] <= '9':
+                if s[i].isdigit():
                     num += s[i]
                 elif s[i] == '[':
                     i, d = dfs(i + 1)
@@ -17,6 +15,8 @@ class Solution(object):
                     num = ''
                 elif s[i] == ']':
                     return i, string
+                else:
+                    string += s[i]
                 i += 1
             return i, string
         
