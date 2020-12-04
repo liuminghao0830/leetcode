@@ -19,9 +19,6 @@ class Solution(object):
         """
         # Time complexity: O(Y/X)
         # Space complexity: O(1)
-        #if X == Y:
-        #    return 0
-
         res = 0
         while Y > X:
             Y = Y + 1 if Y % 2 else Y / 2
